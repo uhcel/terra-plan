@@ -4,7 +4,7 @@ steps:
   entrypoint: terraform
   args:
   - init
-- name:hashicortp/terraform
+- name: hashicortp/terraform
   entrypoint: terraform
   args:
   - plan
