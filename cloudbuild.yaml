@@ -9,5 +9,5 @@ steps:
     args: 
       - validate
       - "terraform.json"
-      - "-policy-path=../../../policies/"
+      - "--policy-path=../../../policies/"
     name: gcr.io/leszek-jinx-main/terraform-validator
