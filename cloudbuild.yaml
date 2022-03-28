@@ -1,15 +1,6 @@
 ---
 steps:
 - name: gcr.io/config-validator/terraform-validator
-  entrypoint: terraform
-  args:
-  - init
-- name: gcr.io/config-validator/terraform-validator
-  entrypoint: terraform
-  args:
-  - plan
-  - -out=terraform.plan
-- name: gcr.io/config-validator/terraform-validator
   entrypoint: "/bin/bash"
   args: ['-c', 'terraform show -json terraform.plan > terraform.json']
 - name: gcr.io/config-validator/terraform-validator
