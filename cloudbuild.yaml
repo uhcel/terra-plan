@@ -1,10 +1,10 @@
 ---
 steps:
-- name: hashicortp/terraform
+- name: hashicorp/terraform
   entrypoint: terraform
   args:
   - init
-- name: hashicortp/terraform
+- name: hashicorp/terraform
   entrypoint: terraform
   args:
   - plan
