@@ -1,11 +1,21 @@
 ---
 steps:
-- name: gcr.io/leszek-jinx-main/terraform-validator
+- name: gcr.io/config-validator/terraform-validator
+  entrypoint: terraform
   args:
-  - convert
-  - "terraform.json"
-- name: gcr.io/leszek-jinx-main/terraform-validator
+  - init
+- name: gcr.io/config-validator/terraform-validator
+  entrypoint: terraform
+  args:
+  - plan
+  - -out=terraform.plan
+- name: gcr.io/config-validator/terraform-validator
+  entrypoint: "/bin/bash"
+  args: ['-c', 'terraform show -json terraform.plan > terraform.json']
+- name: gcr.io/config-validator/terraform-validator
+  dir: deployments/app1/dev
   args:
   - validate
-  - "terraform.json"
-  - --policy-path=../../../policy-library/
+  - terraform.json
+  - --policy-path=/policy-library/
+  - --project
