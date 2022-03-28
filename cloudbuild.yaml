@@ -5,3 +5,9 @@ steps:
       - convert
       - "terraform.json"
     name: gcr.io/leszek-jinx-main/terraform-validator
+  - 
+    args: 
+      - validate
+      - "terraform.json"
+      - "-policy-path=../../../policies/"
+    name: gcr.io/leszek-jinx-main/terraform-validator
