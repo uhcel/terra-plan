@@ -4,10 +4,10 @@ steps:
   dir: deployments/app1/dev
   args:
   - convert
-  - terraform.json
+  - "terraform.json"
 - name: gcr.io/leszek-jinx-main/terraform-validator
   dir: deployments/app1/dev
   args:
   - validate
-  - terraform.json
+  - "terraform.json"
   - --policy-path=../../../policy-library/
