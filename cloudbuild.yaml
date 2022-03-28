@@ -1,13 +1,8 @@
---- 
-steps: 
-  - 
-    args: 
-      - convert
-      - "terraform.json"
-    name: gcr.io/leszek-jinx-main/terraform-validator
-  - 
-    args: 
-      - validate
-      - "terraform.json"
-      - "--policy-path=../../../policies/"
-    name: gcr.io/leszek-jinx-main/terraform-validator
+---
+steps:
+- name: gcr.io/leszek-jinx-main/terraform-validator
+  dir: deployments/app1/dev
+  args:
+  - validate
+  - terraform.json
+  - --policy-path=../../../policy-library/
